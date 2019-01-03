@@ -21,6 +21,7 @@ import { PosModule } from './pos/pos.module';
 import { UserModule } from './user/user.module';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
+import { DropDownButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component'
     InventoryModule,
     PosModule,
     UserModule,
-    HttpClientModule
+    HttpClientModule,
+    DropDownButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

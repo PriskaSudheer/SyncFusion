@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser'
 import { MatIconRegistry } from '@angular/material'
 import { ObservableMedia } from '@angular/flex-layout'
+import { ItemModel} from '@syncfusion/ej2-angular-splitbuttons';
+
 
 @Component({
   selector: 'app-root',
@@ -27,15 +29,13 @@ import { ObservableMedia } from '@angular/flex-layout'
      <mat-icon  style="font-size: 16px !important" svgIcon="lemon"></mat-icon>
       <span class="flex-spacer"></span>
 
-      <button  mat-mini-fab routerLink="/user/profileuser" 
-      matTooltip="Profile" aria-label="User Profile">
-        <mat-icon>account_circle</mat-icon>
-      </button>
+      <button ejs-dropdownbutton [items]='items' content=" User Profile" 
+      iconCss="e-ddb-icons e-profile" routerLink="/user/profileuser"></button>
+   
+      <button ejs-dropdownbutton [items]='itemss' content=" logout" 
+      iconCss="e-ddb-icons e-profile" routerLink="/user/logout" >
+      <mat-icon>lock_open</mat-icon></button>
 
-      <button  mat-mini-fab routerLink="/user/logout" 
-       matTooltip="Logout" aria-label="Logout">
-        <mat-icon>lock_open</mat-icon>
-      </button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </div>
@@ -53,4 +53,29 @@ export class AppComponent {
       sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/lemon.svg')
     )
   }
+  public items: ItemModel[] = [
+    {
+        text: 'Dashboard',
+        iconCss: 'e-ddb-icons e-dashboard'
+    },
+    {
+        text: 'Notifications',
+        iconCss: 'e-ddb-icons e-notifications',
+    },
+    {
+        text: 'User Settings',
+        iconCss: 'e-ddb-icons e-settings',
+    }];
+    public itemss: ItemModel[] = [
+
+      {
+          text: 'User Settings',
+          iconCss: 'e-ddb-icons e-settings',
+      },
+      {
+          text: 'Log Out',
+          iconCss: 'e-ddb-icons e-logout'
+      }];
+   
 }
+
